@@ -3,19 +3,14 @@
 using namespace std;
 
 int partition(int *array, int p, int r) {
-  int element_mid = array[r];
   int i = p - 1;
-  for (int j = p; j < r; j++) {
-    if (array[j] <= element_mid) {
-      i++;
-      int temp = array[i];
+  for (int j = p; j <= r; j++) {
+    if (array[j] <= array[r]) {
+      int temp = array[++i];
       array[i] = array[j];
       array[j] = temp;
     }
   }
-  int temp = array[++i];
-  array[i] = array[r];
-  array[r] = temp;
   return i;
 }
 
